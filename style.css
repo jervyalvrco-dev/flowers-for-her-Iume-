@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root {
-    --dark-color: #000;
+    --dark-color: #ffffff;
     /* New pastel colors */
     --pastel-pink-light: #FFD1DC; /* Light Pink */
     --pastel-pink-medium: #F8C8DC; /* Cherry Blossom Pink */
@@ -30,7 +30,31 @@ body {
     width: 100%;
     height: 100%;
     filter: blur(0.1vmin);
-    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, #000 0px, #000 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, #000 0px, #000 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, #000 0px, #000 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #00fffa, #f0f0f0);
+    background-image: linear-gradient(to top, #f7fcfd, #e0f7fa);
+}
+.sun {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25vmin;
+    height: 25vmin;
+    background: radial-gradient(circle, #ffeb3b, #fbc02d);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff59d;
+    animation: sun-rise 10s ease-out forwards;
+    z-index: 1;
+}
+@keyframes sun-rise {
+    0% {
+        top: 110%;
+        opacity: 0;
+    }
+    100% {
+        top: 15%;
+        opacity: 1;
+        box-shadow: 0 0 100px #fff59d;
+    }
 }
 .flowers {
     position: relative;
@@ -144,7 +168,6 @@ body {
     background-image: linear-gradient(to top, var(--pastel-pink-medium), var(--pastel-pink-light));
     transform-origin: bottom center;
     opacity: 0.9;
-    box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
 }
 .flower__leaf--1 {
     transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
@@ -437,7 +460,7 @@ body {
     right: 0%;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: transparent;
     filter: blur(1.5vmin);
     z-index: 100;
 }
@@ -623,7 +646,6 @@ body {
     width: 10vmin;
     height: 10vmin;
     border-radius: 100% 0% 0% 100% / 100% 100% 0% 0%; /* Keep shape */
-    box-shadow: inset 0 2px 1vmin rgba(255, 209, 220, 0.2); /* Pastel pink glow */
     background-image: linear-gradient(to bottom left, transparent, var(--dark-color)), linear-gradient(to bottom right, var(--pastel-green-light) 50%, transparent 50%, transparent);
     -webkit-mask-image: linear-gradient(to bottom right, var(--pastel-green-light) 50%, transparent 50%, transparent);
     mask-image: linear-gradient(to bottom right, var(--pastel-green-light) 50%, transparent 50%, transparent);
@@ -631,7 +653,7 @@ body {
 .flower__g-fr {
     position: absolute;
     bottom: -4vmin;
-    left: vmin;
+    left: 0;
     transform-origin: bottom left;
     z-index: 10;
     animation: flower__g-fr-ans 2s linear infinite;
@@ -660,7 +682,6 @@ body {
     width: 10vmin; /* Keep size */
     height: 10vmin; /* Keep size */
     border-radius: 100% 0% 0% 100% / 100% 100% 0% 0%; /* Keep shape */
-    box-shadow: inset 0 2px 1vmin rgba(255, 209, 220, 0.2); /* Pastel pink glow */
     background-image: linear-gradient(to bottom left, transparent, var(--dark-color) 98%), linear-gradient(to bottom right, var(--pastel-pink-light) 45%, transparent 50%, transparent);
     -webkit-mask-image: linear-gradient(135deg, var(--pastel-green-light) 40%, transparent 50%, transparent);
 }
@@ -987,19 +1008,20 @@ body {
     position: absolute;
     top: 35%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.5); /* Start small and centered */
-    opacity: 0; /* Initially hidden */
-    font-family: 'Arial', sans-serif; /* You can choose a different font */
-    font-size: 2em;
-    color: white; /* Adjust based on your background */
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    font-family: 'Georgia', serif;
+    font-size: 1.8em;
+    font-style: italic;
+    color: #444;
     text-align: center;
-    z-index: 100; /* Ensure it's above other elements */
-    transition: all 0.5s ease-out; /* Smooth transition for the popping effect */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
-    padding: 15px 25px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    z-index: 100;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .popping-message.show {

@@ -1,4 +1,4 @@
-# Virtual Flowers for Her 🌸
+# Virtual Flowers for Lume 🌸
 
 A romantic, interactive web project featuring blooming pastel flowers, a custom message, and a featured photograph.
 
